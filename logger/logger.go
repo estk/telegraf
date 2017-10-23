@@ -12,6 +12,11 @@ import (
 
 var prefixRegex = regexp.MustCompile("^[DIWE]!")
 
+const (
+	timeLayoutDefault = time.RFC3339 + " I! "
+	timeLayoutSpace   = time.RFC3339 + " "
+)
+
 // newTelegrafWriter returns a logging-wrapped writer.
 func newTelegrafWriter(w io.Writer) io.Writer {
 	return &telegrafLog{
@@ -25,12 +30,28 @@ type telegrafLog struct {
 
 func (t *telegrafLog) Write(b []byte) (n int, err error) {
 	var line []byte
+	tm := time.Now().UTC()
 	if !prefixRegex.Match(b) {
-		line = append([]byte(time.Now().UTC().Format(time.RFC3339)+" I! "), b...)
+		line = prependTimeFormat(tm, timeLayoutDefault, b)
 	} else {
-		line = append([]byte(time.Now().UTC().Format(time.RFC3339)+" "), b...)
+		line = prependTimeFormat(tm, timeLayoutSpace, b)
 	}
 	return t.writer.Write(line)
+}
+
+func prependTimeFormat(t time.Time, layout string, bs []byte) []byte {
+	// Everything up to append copied from: https://golang.org/src/time/format.go#Time.Format
+	var b []byte
+	const bufSize = 64
+	max := len(layout) + 10
+	if max < bufSize {
+		var buf [bufSize]byte
+		b = buf[:0]
+	} else {
+		b = make([]byte, 0, max)
+	}
+	b = t.AppendFormat(b, layout)
+	return append(b, bs...)
 }
 
 // SetupLogging configures the logging output.

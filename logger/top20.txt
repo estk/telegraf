@@ -1,0 +1,23 @@
+Showing nodes accounting for 1230ms, 76.88% of 1600ms total
+Showing top 20 nodes out of 86
+      flat  flat%   sum%        cum   cum%
+     220ms 13.75% 13.75%      560ms 35.00%  time.Time.AppendFormat /usr/local/Cellar/go/1.9.1/libexec/src/time/format.go
+     160ms 10.00% 23.75%      160ms 10.00%  runtime.kevent /usr/local/Cellar/go/1.9.1/libexec/src/runtime/sys_darwin_amd64.s
+     150ms  9.38% 33.12%      150ms  9.38%  time.appendInt /usr/local/Cellar/go/1.9.1/libexec/src/time/format.go
+     120ms  7.50% 40.62%      120ms  7.50%  time.nextStdChunk /usr/local/Cellar/go/1.9.1/libexec/src/time/format.go
+      60ms  3.75% 44.38%       60ms  3.75%  runtime.memmove /usr/local/Cellar/go/1.9.1/libexec/src/runtime/memmove_amd64.s
+      50ms  3.12% 47.50%       50ms  3.12%  regexp/syntax.(*Inst).MatchRunePos /usr/local/Cellar/go/1.9.1/libexec/src/regexp/syntax/prog.go
+      50ms  3.12% 50.62%       50ms  3.12%  runtime.mallocgc /usr/local/Cellar/go/1.9.1/libexec/src/runtime/runtime1.go
+      40ms  2.50% 53.12%       40ms  2.50%  runtime.aeshashbody /usr/local/Cellar/go/1.9.1/libexec/src/runtime/asm_amd64.s
+      40ms  2.50% 55.62%      250ms 15.62%  runtime.mallocgc /usr/local/Cellar/go/1.9.1/libexec/src/runtime/malloc.go
+      40ms  2.50% 58.13%       40ms  2.50%  runtime.memclrNoHeapPointers /usr/local/Cellar/go/1.9.1/libexec/src/runtime/memclr_amd64.s
+      40ms  2.50% 60.62%       40ms  2.50%  sync.(*Mutex).Lock /usr/local/Cellar/go/1.9.1/libexec/src/sync/mutex.go
+      30ms  1.88% 62.50%      150ms  9.38%  regexp.(*machine).tryBacktrack /usr/local/Cellar/go/1.9.1/libexec/src/regexp/backtrack.go
+      30ms  1.88% 64.38%       70ms  4.38%  runtime.concatstrings /usr/local/Cellar/go/1.9.1/libexec/src/runtime/string.go
+      30ms  1.88% 66.25%       30ms  1.88%  runtime.deferreturn /usr/local/Cellar/go/1.9.1/libexec/src/runtime/panic.go
+      30ms  1.88% 68.12%       80ms  5.00%  runtime.mapaccess1 /usr/local/Cellar/go/1.9.1/libexec/src/runtime/hashmap.go
+      30ms  1.88% 70.00%       30ms  1.88%  runtime.newdefer /usr/local/Cellar/go/1.9.1/libexec/src/runtime/panic.go
+      30ms  1.88% 71.88%       30ms  1.88%  sync.(*Mutex).Unlock /usr/local/Cellar/go/1.9.1/libexec/src/sync/mutex.go
+      30ms  1.88% 73.75%      670ms 41.88%  time.Time.Format /usr/local/Cellar/go/1.9.1/libexec/src/time/format.go
+      30ms  1.88% 75.62%       30ms  1.88%  time.absDate /usr/local/Cellar/go/1.9.1/libexec/src/time/time.go
+      20ms  1.25% 76.88%      210ms 13.12%  github.com/influxdata/wlog.(*Writer).Write /Users/evan.simmons/go/src/github.com/influxdata/wlog/writer.go
