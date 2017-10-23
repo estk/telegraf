@@ -4,9 +4,8 @@ import (
 	"github.com/influxdata/telegraf"
 )
 
-type InfluxSerializer struct {
-}
+type InfluxSerializer struct{}
 
-func (s *InfluxSerializer) Serialize(m telegraf.Metric) ([]byte, error) {
+func (s InfluxSerializer) Serialize(m telegraf.Metric) ([]byte, error) {
 	return m.Serialize(), nil
 }
